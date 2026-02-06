@@ -1,0 +1,257 @@
+'use client';
+
+import { ArrowRight, Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+
+// Import hero slide images
+import heroSlide1 from "@/assets/hero-slide-1.jpg";
+import heroSlide2 from "@/assets/hero-slide-2.jpg";
+import heroSlide3 from "@/assets/hero-slide-3.jpg";
+import heroSlide4 from "@/assets/hero-slide-4.jpg";
+import heroSlide5 from "@/assets/hero-slide-5.jpg";
+
+const slides = [
+  {
+    image: heroSlide1.src,
+    title: "3D Diorama",
+    subtitle: "Magical Miniatures",
+  },
+  {
+    image: heroSlide2.src,
+    title: "Mosaic Frames",
+    subtitle: "Family Memories",
+  },
+  {
+    image: heroSlide3.src,
+    title: "Digital Paintings",
+    subtitle: "Artistic Portraits",
+  },
+  {
+    image: heroSlide4.src,
+    title: "LED Photo Lamps",
+    subtitle: "Glow with Love",
+  },
+  {
+    image: heroSlide5.src,
+    title: "Acrylic Frames",
+    subtitle: "Crystal Elegance",
+  },
+];
+
+const Hero = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  return (
+    <section className="relative bg-gradient-hero overflow-hidden">
+      <div className="container mx-auto px-4 py-12 sm:py-16 lg:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center">
+          {/* Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+            className="text-center lg:text-left"
+            suppressHydrationWarning
+          >
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-5 py-2.5 rounded-full text-sm font-semibold mb-8 shadow-sm"
+            >
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="tracking-wide">HYDERABAD'S FINEST STUDIO</span>
+            </motion.div>
+
+            {/* Headline */}
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight mb-6"
+            >
+              <span className="text-gradient-gold italic">Gifts</span> That Tell A{" "}
+              <span className="text-gradient-gold italic">Story</span>
+            </motion.h1>
+
+            {/* Subtext */}
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="text-lg sm:text-xl text-muted-foreground max-w-lg mx-auto lg:mx-0 mb-10 leading-relaxed"
+            >
+              Customized 3D Miniatures for your loved ones. Preserve your most cherished 
+              moments with handcrafted keepsakes.
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            >
+              <Button className="btn-gold group text-base" suppressHydrationWarning>
+                <span>Explore Collection</span>
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </Button>
+              <Button variant="outline" className="btn-outline-gold text-base" suppressHydrationWarning>
+                Our Catalog
+              </Button>
+            </motion.div>
+
+            {/* Slide Indicator */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="hidden lg:flex items-center gap-4 mt-14"
+            >
+              <span className="text-5xl font-display font-bold text-foreground">
+                {String(currentSlide + 1).padStart(2, '0')}
+              </span>
+              <div className="flex items-center gap-2.5">
+                {slides.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    className={`h-1.5 rounded-full transition-all duration-500 ease-out ${
+                      index === currentSlide 
+                        ? "w-16 bg-primary shadow-md" 
+                        : "w-8 bg-border hover:bg-primary/50 hover:w-10"
+                    }`}
+                    suppressHydrationWarning
+                  />
+                ))}
+              </div>
+              <span className="text-sm font-medium text-muted-foreground tracking-wider">OF 05</span>
+            </motion.div>
+          </motion.div>
+
+          {/* Hero Image Carousel */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
+            className="relative"
+            suppressHydrationWarning
+          >
+            <div className="relative rounded-3xl overflow-hidden shadow-hover aspect-square sm:aspect-video lg:aspect-square min-h-[300px] sm:min-h-[400px] lg:min-h-[550px]">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={currentSlide}
+                  src={slides[currentSlide].image}
+                  alt={slides[currentSlide].title}
+                  initial={{ opacity: 0, scale: 1.08 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
+                  className="w-full h-full object-cover"
+                />
+              </AnimatePresence>
+
+              {/* Floating elements - No unmount to prevent blinking */}
+              <motion.div
+                animate={{ y: [0, -12, 0] }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-6 right-6 bg-white/95 backdrop-blur-md rounded-full px-5 py-3 shadow-soft"
+              >
+                <motion.span
+                  key={`subtitle-${currentSlide}`}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+                  className="text-sm font-semibold text-foreground inline-block"
+                >
+                  ✨ {slides[currentSlide].subtitle}
+                </motion.span>
+              </motion.div>
+
+              {/* Slide Title Badge - Smooth content transition without unmounting */}
+              <motion.div
+                className="absolute bottom-20 left-6 bg-foreground/90 backdrop-blur-md rounded-xl px-5 py-3 shadow-lg"
+              >
+                <motion.span
+                  key={`title-${currentSlide}`}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+                  className="text-sm font-bold text-background inline-block tracking-wide"
+                >
+                  {slides[currentSlide].title}
+                </motion.span>
+              </motion.div>
+            </div>
+
+            {/* Navigation Arrows */}
+            <div className="absolute bottom-6 right-6 flex gap-3">
+              <motion.button
+                onClick={prevSlide}
+                whileHover={{ scale: 1.15, rotate: -5 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                className="w-14 h-14 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-foreground hover:bg-white transition-all duration-300 shadow-soft hover:shadow-lg"
+                suppressHydrationWarning
+              >
+                <ArrowRight className="w-5 h-5 rotate-180" />
+              </motion.button>
+              <motion.button
+                onClick={nextSlide}
+                whileHover={{ scale: 1.15, rotate: 5 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                className="w-14 h-14 rounded-full bg-white flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-all duration-300 shadow-soft hover:shadow-lg"
+                suppressHydrationWarning
+              >
+                <ArrowRight className="w-5 h-5" />
+              </motion.button>
+            </div>
+
+            {/* Mobile Slide Indicators */}
+            <div className="flex lg:hidden items-center justify-center gap-2.5 mt-6">
+              {slides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`h-2 rounded-full transition-all duration-500 ease-out ${
+                    index === currentSlide 
+                      ? "w-10 bg-primary shadow-md" 
+                      : "w-2 bg-border hover:bg-primary/50"
+                  }`}
+                  suppressHydrationWarning
+                />
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
