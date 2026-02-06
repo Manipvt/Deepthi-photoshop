@@ -57,7 +57,7 @@ const ProductCard = ({
       suppressHydrationWarning
     >
       {/* Image Container */}
-      <div className="relative aspect-square overflow-hidden bg-muted/30">
+      <div className="relative aspect-square overflow-hidden bg-muted/30 rounded-t-2xl">
         <img
           src={image}
           alt={title}
@@ -65,15 +65,15 @@ const ProductCard = ({
         />
         
         {/* Category Badge */}
-        <div className="absolute top-4 left-4">
-          <span className={`${getCategoryClass()} text-white text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-wide`}>
+        <div className="absolute top-2 sm:top-4 left-2 sm:left-4">
+          <span className={`${getCategoryClass()} text-white text-xs font-semibold px-2 sm:px-3 py-1 sm:py-1.5 rounded-full uppercase tracking-wide`}>
             {category}
           </span>
         </div>
 
         {/* Discount Badge */}
         {discount && (
-          <div className="absolute top-4 right-4">
+          <div className="absolute top-2 sm:top-4 right-2 sm:right-4">
             <span className="bg-accent text-white text-xs font-bold px-2 py-1 rounded-full">
               {discount}% OFF
             </span>
@@ -82,7 +82,7 @@ const ProductCard = ({
 
         {/* New Badge */}
         {isNew && !discount && (
-          <div className="absolute top-4 right-4">
+          <div className="absolute top-2 sm:top-4 right-2 sm:right-4">
             <span className="bg-success text-white text-xs font-bold px-2 py-1 rounded-full">
               +1 MORE
             </span>
@@ -100,24 +100,24 @@ const ProductCard = ({
             whileHover={{ scale: 1.1, y: -4 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            className="flex items-center gap-2 bg-white text-foreground px-6 py-3 rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300 shadow-lg"
+            className="flex items-center gap-2 bg-white text-foreground px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold text-sm sm:text-base hover:bg-primary hover:text-white transition-all duration-300 shadow-lg"
             suppressHydrationWarning
           >
-            <Eye className="w-5 h-5" />
-            <span>View Product</span>
+            <Eye className="w-4 h-4 sm:w-5 sm:h-5" />
+            <span>View</span>
           </motion.button>
         </motion.div>
       </div>
 
       {/* Content */}
-      <div className="p-6">
+      <div className="p-4 sm:p-5 lg:p-6">
         {/* Rating */}
-        <div className="flex items-center gap-2 mb-3">
-          <div className="flex">
+        <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
+          <div className="flex gap-0.5">
             {[...Array(5)].map((_, i) => (
               <Star
                 key={i}
-                className={`w-4 h-4 transition-all ${
+                className={`w-3.5 h-3.5 sm:w-4 sm:h-4 transition-all ${
                   i < Math.floor(rating)
                     ? "text-amber-400 fill-amber-400"
                     : "text-gray-300"
@@ -125,37 +125,37 @@ const ProductCard = ({
               />
             ))}
           </div>
-          <span className="text-sm font-medium text-muted-foreground">({reviews})</span>
+          <span className="text-xs sm:text-sm font-medium text-muted-foreground">({reviews})</span>
         </div>
 
         {/* Title */}
-        <h3 className="font-display text-lg font-semibold text-foreground mb-2 line-clamp-1">
+        <h3 className="font-display text-base sm:text-lg font-semibold text-foreground mb-2 line-clamp-1">
           {title}
         </h3>
 
         {/* Description */}
-        <p className="text-sm text-muted-foreground line-clamp-2 mb-4">
+        <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2 mb-3 sm:mb-4">
           {description}
         </p>
 
         {/* Price & CTA */}
-        <div className="flex items-center justify-between pt-1">
-          <div>
-            <span className="text-xs text-muted-foreground font-medium block mb-1">STARTING FROM</span>
-            <div className="flex items-center gap-2">
-              <span className="text-2xl font-bold text-foreground">₹{price}</span>
+        <div className="flex items-end justify-between gap-2">
+          <div className="flex-1">
+            <span className="text-xs text-muted-foreground font-medium block mb-0.5">FROM</span>
+            <div className="flex items-center gap-1 sm:gap-2 flex-wrap">
+              <span className="text-lg sm:text-2xl font-bold text-foreground">₹{price}</span>
               {originalPrice && (
-                <span className="text-sm text-muted-foreground line-through">₹{originalPrice}</span>
+                <span className="text-xs sm:text-sm text-muted-foreground line-through">₹{originalPrice}</span>
               )}
             </div>
           </div>
           <button 
             onClick={onViewProduct}
-            className="flex items-center gap-1 text-primary font-bold hover:gap-2.5 transition-all duration-300 group/btn"
+            className="flex items-center gap-1 text-primary font-bold hover:gap-2 transition-all duration-300 group/btn text-xs sm:text-sm whitespace-nowrap"
             suppressHydrationWarning
           >
-            <span className="text-sm">SHOP NOW</span>
-            <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+            <span>SHOP</span>
+            <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover/btn:translate-x-1 transition-transform" />
           </button>
         </div>
       </div>

@@ -53,12 +53,17 @@ const Navbar = () => {
   return (
     <>
       {/* Promo Banner */}
-      <div className="bg-navy text-white py-3 px-4 text-center text-sm font-medium">
-        <span className="text-accent">❤️</span>
-        <span className="ml-2 tracking-wide">
-          VALENTINE'S DAY SPECIAL: FREE PERSONALIZATION ON ALL 3D MINIATURES - USE CODE: 
-          <span className="font-bold text-primary ml-1 tracking-wider">HELLOHYD2026</span>
-        </span>
+      <div className="bg-navy text-white py-2 sm:py-3 px-3 sm:px-4 text-center text-xs sm:text-sm font-medium">
+        <div className="flex items-center justify-center gap-1 sm:gap-2 flex-wrap">
+          <span className="text-accent text-sm sm:text-base">❤️</span>
+          <span className="tracking-wide">
+            VALENTINE'S SPECIAL: FREE PERSONALIZATION ON ALL 3D MINIATURES
+          </span>
+        </div>
+        <div className="mt-1 sm:mt-0 sm:inline-block sm:ml-2">
+          <span className="tracking-wider">CODE: </span>
+          <span className="font-bold text-primary tracking-wider">HELLOHYD2026</span>
+        </div>
       </div>
 
       {/* Main Navbar */}

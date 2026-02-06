@@ -55,21 +55,21 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" className="py-20 lg:py-28 bg-gradient-to-b from-secondary/20 to-background">
-      <div className="container mx-auto px-4">
+    <section id="testimonials" className="py-12 sm:py-16 lg:py-28 bg-gradient-to-b from-secondary/20 to-background">
+      <div className="container px-3 sm:px-4">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12 lg:mb-16"
           suppressHydrationWarning
         >
-          <span className="text-primary font-semibold text-sm tracking-widest uppercase">
+          <span className="text-primary font-semibold text-xs sm:text-sm tracking-widest uppercase">
             Happy Customers
           </span>
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground mt-3">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mt-2 sm:mt-3">
             What Our <span className="text-gradient-gold italic">Customers</span> Say
           </h2>
         </motion.div>
@@ -84,10 +84,10 @@ const Testimonials = () => {
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: -60, scale: 0.95 }}
                 transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-                className="testimonial-card bg-white p-10 lg:p-12 rounded-3xl shadow-hover"
+                className="testimonial-card bg-white p-6 sm:p-8 lg:p-12 rounded-2xl sm:rounded-3xl shadow-hover"
                 suppressHydrationWarning
               >
-              <div className="flex flex-col lg:flex-row gap-8 items-start">
+              <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-8 items-start">
                 {/* Avatar */}
                 <motion.img
                   initial={{ scale: 0.8, opacity: 0 }}
@@ -95,22 +95,22 @@ const Testimonials = () => {
                   transition={{ delay: 0.2, duration: 0.5 }}
                   src={testimonials[currentIndex].image}
                   alt={testimonials[currentIndex].name}
-                  className="w-24 h-24 rounded-full object-cover shadow-soft shrink-0 ring-4 ring-secondary"
+                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover shadow-soft shrink-0 ring-3 sm:ring-4 ring-secondary"
                 />
 
                 {/* Content */}
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                   {/* Rating */}
                   <motion.div 
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.5 }}
-                    className="flex gap-1 mb-5"
+                    className="flex gap-1 mb-3 sm:mb-4 lg:mb-5"
                   >
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
-                        className={`w-5 h-5 transition-all ${
+                        className={`w-4 h-4 sm:w-5 sm:h-5 transition-all ${
                           i < testimonials[currentIndex].rating
                             ? "text-amber-400 fill-amber-400"
                             : "text-gray-300"
@@ -124,7 +124,7 @@ const Testimonials = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4, duration: 0.5 }}
-                    className="text-xl text-foreground italic mb-6 leading-relaxed font-medium"
+                    className="text-base sm:text-lg lg:text-xl text-foreground italic mb-4 sm:mb-5 lg:mb-6 leading-relaxed font-medium break-words"
                   >
                     “{testimonials[currentIndex].text}”
                   </motion.p>
@@ -134,18 +134,18 @@ const Testimonials = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.5 }}
-                    className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-4 border-t border-border"
+                    className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 pt-3 sm:pt-4 border-t border-border"
                   >
                     <div>
-                      <h4 className="font-display font-bold text-lg text-foreground">
+                      <h4 className="font-display font-bold text-base sm:text-lg text-foreground">
                         {testimonials[currentIndex].name}
                       </h4>
-                      <p className="text-sm text-muted-foreground font-medium">
+                      <p className="text-xs sm:text-sm text-muted-foreground font-medium">
                         {testimonials[currentIndex].location}
                       </p>
                     </div>
-                    <span className="text-sm text-primary font-semibold bg-secondary px-4 py-2 rounded-full">
-                      Bought: {testimonials[currentIndex].product}
+                    <span className="text-xs sm:text-sm text-primary font-semibold bg-secondary px-3 sm:px-4 py-1.5 sm:py-2 rounded-full whitespace-nowrap">
+                      {testimonials[currentIndex].product}
                     </span>
                   </motion.div>
                 </div>
@@ -155,20 +155,20 @@ const Testimonials = () => {
           </div>
 
           {/* Navigation */}
-          <div className="flex items-center justify-center gap-6 mt-10">
+          <div className="flex items-center justify-center gap-4 sm:gap-6 mt-8 sm:mt-10">
             <motion.button
               onClick={prevSlide}
               whileHover={{ scale: 1.15, rotate: -5 }}
               whileTap={{ scale: 0.9 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="w-14 h-14 rounded-full bg-white flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-all duration-300 shadow-soft hover:shadow-lg"
+              className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-all duration-300 shadow-soft hover:shadow-lg flex-shrink-0"
               suppressHydrationWarning
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
             </motion.button>
 
             {/* Dots */}
-            <div className="flex gap-3">
+            <div className="flex gap-2 sm:gap-3">
               {testimonials.map((_, index) => (
                 <motion.button
                   key={index}
@@ -176,8 +176,8 @@ const Testimonials = () => {
                   whileHover={{ scale: 1.3 }}
                   whileTap={{ scale: 0.8 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  className={`h-3 rounded-full transition-all duration-500 ${
-                    index === currentIndex ? "w-12 bg-primary shadow-md" : "w-3 bg-border hover:bg-primary/50"
+                  className={`h-2 sm:h-3 rounded-full transition-all duration-500 ${
+                    index === currentIndex ? "w-8 sm:w-12 bg-primary shadow-md" : "w-2 sm:w-3 bg-border hover:bg-primary/50"
                   }`}
                   suppressHydrationWarning
                 />
@@ -189,10 +189,10 @@ const Testimonials = () => {
               whileHover={{ scale: 1.15, rotate: 5 }}
               whileTap={{ scale: 0.9 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="w-14 h-14 rounded-full bg-white flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-all duration-300 shadow-soft hover:shadow-lg"
+              className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-all duration-300 shadow-soft hover:shadow-lg flex-shrink-0"
               suppressHydrationWarning
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
             </motion.button>
           </div>
         </div>

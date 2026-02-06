@@ -64,14 +64,14 @@ const Hero = () => {
 
   return (
     <section className="relative bg-gradient-hero overflow-hidden">
-      <div className="container mx-auto px-4 py-12 sm:py-16 lg:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center">
+      <div className="container py-8 sm:py-12 lg:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-            className="text-center lg:text-left"
+            className="text-center lg:text-left px-3 sm:px-0"
             suppressHydrationWarning
           >
             {/* Badge */}
@@ -79,9 +79,9 @@ const Hero = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-5 py-2.5 rounded-full text-sm font-semibold mb-8 shadow-sm"
+              className="inline-flex items-center gap-1.5 sm:gap-2 bg-secondary text-secondary-foreground px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-8 shadow-sm"
             >
-              <Sparkles className="w-4 h-4 text-primary" />
+              <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" />
               <span className="tracking-wide">HYDERABAD'S FINEST STUDIO</span>
             </motion.div>
 
@@ -90,7 +90,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight mb-6"
+              className="font-display text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight mb-4 sm:mb-6"
             >
               <span className="text-gradient-gold italic">Gifts</span> That Tell A{" "}
               <span className="text-gradient-gold italic">Story</span>
@@ -101,7 +101,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-lg sm:text-xl text-muted-foreground max-w-lg mx-auto lg:mx-0 mb-10 leading-relaxed"
+              className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-lg mx-auto lg:mx-0 mb-6 sm:mb-10 leading-relaxed"
             >
               Customized 3D Miniatures for your loved ones. Preserve your most cherished 
               moments with handcrafted keepsakes.
@@ -112,13 +112,13 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start"
             >
-              <Button className="btn-gold group text-base" suppressHydrationWarning>
+              <Button className="btn-gold group text-sm sm:text-base" suppressHydrationWarning>
                 <span>Explore Collection</span>
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
-              <Button variant="outline" className="btn-outline-gold text-base" suppressHydrationWarning>
+              <Button variant="outline" className="btn-outline-gold text-sm sm:text-base" suppressHydrationWarning>
                 Our Catalog
               </Button>
             </motion.div>
@@ -156,10 +156,10 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
-            className="relative"
+            className="relative px-3 sm:px-0"
             suppressHydrationWarning
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-hover aspect-square sm:aspect-video lg:aspect-square min-h-[300px] sm:min-h-[400px] lg:min-h-[550px]">
+            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-hover aspect-square min-h-[280px] sm:min-h-[400px] lg:min-h-[550px] w-full">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={currentSlide}
@@ -177,7 +177,7 @@ const Hero = () => {
               <motion.div
                 animate={{ y: [0, -12, 0] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-6 right-6 bg-white/95 backdrop-blur-md rounded-full px-5 py-3 shadow-soft"
+                className="absolute top-3 sm:top-6 right-3 sm:right-6 bg-white/95 backdrop-blur-md rounded-full px-3 sm:px-5 py-2 sm:py-3 shadow-soft text-xs sm:text-sm"
               >
                 <motion.span
                   key={`subtitle-${currentSlide}`}
@@ -185,7 +185,7 @@ const Hero = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-                  className="text-sm font-semibold text-foreground inline-block"
+                  className="font-semibold text-foreground inline-block"
                 >
                   ✨ {slides[currentSlide].subtitle}
                 </motion.span>
@@ -193,7 +193,7 @@ const Hero = () => {
 
               {/* Slide Title Badge - Smooth content transition without unmounting */}
               <motion.div
-                className="absolute bottom-20 left-6 bg-foreground/90 backdrop-blur-md rounded-xl px-5 py-3 shadow-lg"
+                className="absolute bottom-12 sm:bottom-20 left-3 sm:left-6 bg-foreground/90 backdrop-blur-md rounded-lg sm:rounded-xl px-3 sm:px-5 py-2 sm:py-3 shadow-lg text-xs sm:text-sm"
               >
                 <motion.span
                   key={`title-${currentSlide}`}
@@ -201,7 +201,7 @@ const Hero = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-                  className="text-sm font-bold text-background inline-block tracking-wide"
+                  className="font-bold text-background inline-block tracking-wide"
                 >
                   {slides[currentSlide].title}
                 </motion.span>
@@ -209,39 +209,39 @@ const Hero = () => {
             </div>
 
             {/* Navigation Arrows */}
-            <div className="absolute bottom-6 right-6 flex gap-3">
+            <div className="absolute bottom-3 sm:bottom-6 right-3 sm:right-6 flex gap-2 sm:gap-3">
               <motion.button
                 onClick={prevSlide}
                 whileHover={{ scale: 1.15, rotate: -5 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                className="w-14 h-14 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-foreground hover:bg-white transition-all duration-300 shadow-soft hover:shadow-lg"
+                className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-foreground hover:bg-white transition-all duration-300 shadow-soft hover:shadow-lg"
                 suppressHydrationWarning
               >
-                <ArrowRight className="w-5 h-5 rotate-180" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 rotate-180" />
               </motion.button>
               <motion.button
                 onClick={nextSlide}
                 whileHover={{ scale: 1.15, rotate: 5 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                className="w-14 h-14 rounded-full bg-white flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-all duration-300 shadow-soft hover:shadow-lg"
+                className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-all duration-300 shadow-soft hover:shadow-lg"
                 suppressHydrationWarning
               >
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </motion.button>
             </div>
 
             {/* Mobile Slide Indicators */}
-            <div className="flex lg:hidden items-center justify-center gap-2.5 mt-6">
+            <div className="flex lg:hidden items-center justify-center gap-2 sm:gap-2.5 mt-4 sm:mt-6">
               {slides.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => goToSlide(index)}
-                  className={`h-2 rounded-full transition-all duration-500 ease-out ${
+                  className={`h-1.5 sm:h-2 rounded-full transition-all duration-500 ease-out ${
                     index === currentSlide 
-                      ? "w-10 bg-primary shadow-md" 
-                      : "w-2 bg-border hover:bg-primary/50"
+                      ? "w-8 sm:w-10 bg-primary shadow-md" 
+                      : "w-1.5 sm:w-2 bg-border hover:bg-primary/50"
                   }`}
                   suppressHydrationWarning
                 />

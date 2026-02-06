@@ -115,30 +115,30 @@ const Products = () => {
   };
 
   return (
-    <section id="products" className="py-20 lg:py-28 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="products" className="py-12 sm:py-16 lg:py-28 bg-background">
+      <div className="container px-3 sm:px-4">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12 lg:mb-16"
           suppressHydrationWarning
         >
-          <span className="text-primary font-semibold text-sm tracking-widest uppercase">
+          <span className="text-primary font-semibold text-xs sm:text-sm tracking-widest uppercase">
             Our Collection
           </span>
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground mt-3">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mt-2 sm:mt-3">
             Handcrafted with <span className="text-gradient-gold italic">Love</span>
           </h2>
-          <p className="text-muted-foreground mt-5 max-w-2xl mx-auto text-lg">
+          <p className="text-muted-foreground mt-3 sm:mt-4 lg:mt-5 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg">
             Explore our curated collection of personalized gifts that capture your most cherished memories.
           </p>
         </motion.div>
 
         {/* Product Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
           {displayedProducts.map((product, index) => (
             <ProductCard 
               key={index} 
@@ -155,12 +155,12 @@ const Products = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-center mt-14"
+            className="text-center mt-10 sm:mt-12 lg:mt-14"
             suppressHydrationWarning
           >
             <button 
               onClick={toggleShowAll}
-              className="btn-outline-gold text-base px-8 py-3" 
+              className="btn-outline-gold text-sm sm:text-base px-6 sm:px-8 py-2.5 sm:py-3" 
               suppressHydrationWarning
             >
               {showAll ? 'Show Less Products' : `View All Products (${products.length - INITIAL_DISPLAY_COUNT} more)`}
