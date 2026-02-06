@@ -21,6 +21,7 @@
   --navy: #1e3a5f;
   --gold-dark: #c29a3d;
   --gold-light: #f4d03f;
+  color-scheme: light;
 }
 
 @theme inline {
@@ -37,13 +38,15 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --secondary: #1a1a1a;
-    --secondary-foreground: #ededed;
-    --muted: #262626;
-    --muted-foreground: #a3a3a3;
-    --border: #262626;
+    --background: #ffffff;
+    --foreground: #171717;
+    --secondary: #fef5e7;
+    --secondary-foreground: #8b7355;
+    --muted: #f9fafb;
+    --muted-foreground: #6b7280;
+    --border: #e5e7eb;
+    --input: #ffffff;
+    --ring: #d4a853;
   }
 }
 
