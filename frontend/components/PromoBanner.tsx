@@ -22,7 +22,7 @@ const PromoBanner = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-          className="promo-gradient rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-14 relative overflow-hidden shadow-hover"
+          className="bg-gradient-to-r from-[#ff1744] via-[#ff6b35] to-[#ff9100] rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-14 relative overflow-hidden shadow-hover"
           suppressHydrationWarning
         >
           {/* Background decoration */}

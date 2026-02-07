@@ -126,8 +126,8 @@ const Products = () => {
           className="text-center mb-10 sm:mb-12 lg:mb-16"
           suppressHydrationWarning
         >
-          <span className="text-primary font-semibold text-xs sm:text-sm tracking-widest uppercase">
-            Our Collection
+          <span className="text-[#ff6b35] font-bold text-xs sm:text-sm tracking-widest uppercase inline-block bg-[#ff6b35]/10 px-4 py-2 rounded-full border border-[#ff6b35]/20">
+            ✨ Our Collection ✨
           </span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mt-2 sm:mt-3">
             Handcrafted with <span className="text-gradient-gold italic">Love</span>
@@ -158,12 +158,12 @@ const Products = () => {
             className="text-center mt-10 sm:mt-12 lg:mt-14"
             suppressHydrationWarning
           >
-            <button 
+            <button
               onClick={toggleShowAll}
-              className="btn-outline-gold text-sm sm:text-base px-6 sm:px-8 py-2.5 sm:py-3" 
+              className="btn-outline-gold text-sm sm:text-base px-6 sm:px-8 py-2.5 sm:py-3 hover:shadow-lg hover:shadow-[#ff6b35]/40"
               suppressHydrationWarning
             >
-              {showAll ? 'Show Less Products' : `View All Products (${products.length - INITIAL_DISPLAY_COUNT} more)`}
+              {showAll ? '📦 Show Less Products' : `🛍️ View All Products (${products.length - INITIAL_DISPLAY_COUNT} more)`}
             </button>
           </motion.div>
         )}

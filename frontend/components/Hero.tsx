@@ -4,6 +4,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 // Import hero slide images
 import heroSlide1 from "@/assets/hero-slide-1.jpg";
@@ -79,20 +80,20 @@ const Hero = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="inline-flex items-center gap-1.5 sm:gap-2 bg-secondary text-secondary-foreground px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-8 shadow-sm"
+              className="inline-flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-[#ff6b35]/10 to-[#ff9100]/10 text-[#ff6b35] px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold mb-4 sm:mb-8 shadow-sm border border-[#ff6b35]/20"
             >
-              <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary" />
-              <span className="tracking-wide">HYDERABAD'S FINEST STUDIO</span>
+              <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#ff6b35]" />
+              <span className="tracking-wide">⭐ HYDERABAD'S FINEST STUDIO ⭐</span>
             </motion.div>
 
             {/* Headline */}
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
               className="font-display text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight mb-4 sm:mb-6"
             >
-              <span className="text-gradient-gold italic">Gifts</span> That Tell A{" "}
+              <span className="text-gradient-gold italic">Personalized Gifts</span> That Tell A{" "}
               <span className="text-gradient-gold italic">Story</span>
             </motion.h1>
 
@@ -108,19 +109,31 @@ const Hero = () => {
             </motion.p>
 
             {/* CTAs */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
               className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start"
             >
-              <Button className="btn-gold group text-sm sm:text-base" suppressHydrationWarning>
-                <span>Explore Collection</span>
+              <Button
+                onClick={() => {
+                  document.getElementById('products')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
+                className="btn-gold group text-sm sm:text-base shadow-lg shadow-[#ff6b35]/40 hover:shadow-xl hover:shadow-[#ff6b35]/60 cursor-pointer"
+                suppressHydrationWarning
+              >
+                <span>🛍️ Shop Now</span>
                 <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
-              <Button variant="outline" className="btn-outline-gold text-sm sm:text-base" suppressHydrationWarning>
-                Our Catalog
-              </Button>
+              <Link href="/gallery">
+                <Button
+                  variant="outline"
+                  className="btn-outline-gold text-sm sm:text-base border-2 hover:border-[#ff9100] w-full sm:w-auto"
+                  suppressHydrationWarning
+                >
+                  📖 View Catalog
+                </Button>
+              </Link>
             </motion.div>
 
             {/* Slide Indicator */}

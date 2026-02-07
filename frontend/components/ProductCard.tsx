@@ -35,15 +35,15 @@ const ProductCard = ({
   const getCategoryClass = () => {
     switch (categoryColor) {
       case "green":
-        return "bg-emerald-500";
+        return "bg-[#00c853] shadow-lg shadow-[#00c853]/30";
       case "orange":
-        return "bg-primary";
+        return "bg-[#ff6b35] shadow-lg shadow-[#ff6b35]/30";
       case "pink":
-        return "bg-accent";
+        return "bg-[#ff1744] shadow-lg shadow-[#ff1744]/30";
       case "blue":
-        return "bg-blue-500";
+        return "bg-[#0066ff] shadow-lg shadow-[#0066ff]/30";
       default:
-        return "bg-primary";
+        return "bg-[#ff6b35] shadow-lg shadow-[#ff6b35]/30";
     }
   };
 
@@ -74,7 +74,7 @@ const ProductCard = ({
         {/* Discount Badge */}
         {discount && (
           <div className="absolute top-2 sm:top-4 right-2 sm:right-4">
-            <span className="bg-accent text-white text-xs font-bold px-2 py-1 rounded-full">
+            <span className="bg-gradient-to-r from-[#ff1744] to-[#ff5722] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg shadow-[#ff1744]/40 animate-bounce-slow">
               {discount}% OFF
             </span>
           </div>
@@ -83,7 +83,7 @@ const ProductCard = ({
         {/* New Badge */}
         {isNew && !discount && (
           <div className="absolute top-2 sm:top-4 right-2 sm:right-4">
-            <span className="bg-success text-white text-xs font-bold px-2 py-1 rounded-full">
+            <span className="bg-gradient-to-r from-[#00c853] to-[#76ff03] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg shadow-[#00c853]/40">
               +1 MORE
             </span>
           </div>

@@ -66,8 +66,8 @@ const Testimonials = () => {
           className="text-center mb-10 sm:mb-12 lg:mb-16"
           suppressHydrationWarning
         >
-          <span className="text-primary font-semibold text-xs sm:text-sm tracking-widest uppercase">
-            Happy Customers
+          <span className="text-[#ff6b35] font-bold text-xs sm:text-sm tracking-widest uppercase inline-block bg-[#ff6b35]/10 px-4 py-2 rounded-full border border-[#ff6b35]/20">
+            💬 Happy Customers 💬
           </span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mt-2 sm:mt-3">
             What Our <span className="text-gradient-gold italic">Customers</span> Say
@@ -84,7 +84,7 @@ const Testimonials = () => {
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: -60, scale: 0.95 }}
                 transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-                className="testimonial-card bg-white p-6 sm:p-8 lg:p-12 rounded-2xl sm:rounded-3xl shadow-hover"
+                className="testimonial-card bg-white p-6 sm:p-8 lg:p-12 rounded-2xl sm:rounded-3xl shadow-hover border-l-4 border-l-[#ff6b35]"
                 suppressHydrationWarning
               >
               <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-8 items-start">
@@ -95,7 +95,7 @@ const Testimonials = () => {
                   transition={{ delay: 0.2, duration: 0.5 }}
                   src={testimonials[currentIndex].image}
                   alt={testimonials[currentIndex].name}
-                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover shadow-soft shrink-0 ring-3 sm:ring-4 ring-secondary"
+                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover shadow-soft shrink-0 ring-3 sm:ring-4 ring-[#ff6b35]"
                 />
 
                 {/* Content */}
@@ -112,7 +112,7 @@ const Testimonials = () => {
                         key={i}
                         className={`w-4 h-4 sm:w-5 sm:h-5 transition-all ${
                           i < testimonials[currentIndex].rating
-                            ? "text-amber-400 fill-amber-400"
+                            ? "text-[#ff9100] fill-[#ff9100]"
                             : "text-gray-300"
                         }`}
                       />
@@ -144,7 +144,7 @@ const Testimonials = () => {
                         {testimonials[currentIndex].location}
                       </p>
                     </div>
-                    <span className="text-xs sm:text-sm text-primary font-semibold bg-secondary px-3 sm:px-4 py-1.5 sm:py-2 rounded-full whitespace-nowrap">
+                    <span className="text-xs sm:text-sm text-white font-semibold bg-gradient-to-r from-[#ff6b35] to-[#ff9100] px-3 sm:px-4 py-1.5 sm:py-2 rounded-full whitespace-nowrap shadow-lg shadow-[#ff6b35]/30">
                       {testimonials[currentIndex].product}
                     </span>
                   </motion.div>
@@ -161,7 +161,7 @@ const Testimonials = () => {
               whileHover={{ scale: 1.15, rotate: -5 }}
               whileTap={{ scale: 0.9 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-all duration-300 shadow-soft hover:shadow-lg flex-shrink-0"
+              className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white flex items-center justify-center text-foreground hover:bg-[#ff6b35] hover:text-white transition-all duration-300 shadow-soft hover:shadow-lg hover:shadow-[#ff6b35]/40 flex-shrink-0"
               suppressHydrationWarning
             >
               <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -177,7 +177,7 @@ const Testimonials = () => {
                   whileTap={{ scale: 0.8 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   className={`h-2 sm:h-3 rounded-full transition-all duration-500 ${
-                    index === currentIndex ? "w-8 sm:w-12 bg-primary shadow-md" : "w-2 sm:w-3 bg-border hover:bg-primary/50"
+                    index === currentIndex ? "w-8 sm:w-12 bg-[#ff6b35] shadow-md shadow-[#ff6b35]/40" : "w-2 sm:w-3 bg-border hover:bg-[#ff6b35]/50"
                   }`}
                   suppressHydrationWarning
                 />
@@ -189,7 +189,7 @@ const Testimonials = () => {
               whileHover={{ scale: 1.15, rotate: 5 }}
               whileTap={{ scale: 0.9 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-all duration-300 shadow-soft hover:shadow-lg flex-shrink-0"
+              className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white flex items-center justify-center text-foreground hover:bg-[#ff6b35] hover:text-white transition-all duration-300 shadow-soft hover:shadow-lg hover:shadow-[#ff6b35]/40 flex-shrink-0"
               suppressHydrationWarning
             >
               <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />

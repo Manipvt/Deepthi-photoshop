@@ -53,16 +53,16 @@ const Navbar = () => {
   return (
     <>
       {/* Promo Banner */}
-      <div className="bg-navy text-white py-2 sm:py-3 px-3 sm:px-4 text-center text-xs sm:text-sm font-medium">
+      <div className="bg-gradient-to-r from-[#ff1744] via-[#ff6b35] to-[#ff9100] text-white py-2.5 sm:py-3.5 px-3 sm:px-4 text-center text-xs sm:text-sm font-bold animate-pulse-slow">
         <div className="flex items-center justify-center gap-1 sm:gap-2 flex-wrap">
-          <span className="text-accent text-sm sm:text-base">❤️</span>
+          <span className="text-xl sm:text-2xl">🎁</span>
           <span className="tracking-wide">
             VALENTINE'S SPECIAL: FREE PERSONALIZATION ON ALL 3D MINIATURES
           </span>
         </div>
         <div className="mt-1 sm:mt-0 sm:inline-block sm:ml-2">
           <span className="tracking-wider">CODE: </span>
-          <span className="font-bold text-primary tracking-wider">HELLOHYD2026</span>
+          <span className="font-bold text-white tracking-wider bg-black/20 px-2 py-0.5 rounded">HELLOHYD2026</span>
         </div>
       </div>
 
@@ -121,9 +121,9 @@ const Navbar = () => {
             {/* Actions */}
             <div className="flex items-center gap-3">
               <Link href="/#products">
-                <Button className="btn-gold hidden sm:flex items-center gap-2 px-4 py-2 h-auto" suppressHydrationWarning>
+                <Button className="btn-gold hidden sm:flex items-center gap-2 px-4 py-2 h-auto shadow-lg shadow-[#ff6b35]/40" suppressHydrationWarning>
                   <Gift className="w-4 h-4" />
-                  <span>SHOP</span>
+                  <span>🛍️ SHOP</span>
                 </Button>
               </Link>
               <button 
